@@ -3,28 +3,42 @@ package com.hbt.semillero.dto;
 import java.io.Serializable;
 
 /**
- * Indica el resultado de ejecución.
  * 
- * @author Johnny Soto
- *
+ * Descripción: Clase que determina los valores que resultan de la ejecución de un servicio.
+ * Caso de Uso: SEMILLERO HBT 2021
+ * @author Brayan Perez
+ * @version 2.0
  */
 public class ResultadoDTO implements Serializable {
 
 	/**
-	 * Serial
+	 * SerialVersionUID es el id único que identifica una clase 
+	 * cuando lo serializamos. mediante este id podemos identificar el objeto convertido 
+	 * en un array de bytes.
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	/**
-	 * Indicador de resultado.
+	 * Propiedad que indica el resultado de la ejecución de un servicio.
 	 */
 	private boolean exitoso = false;
+	
 	/**
-	 * Mensaje de ejecución.
+	 * Propiedad que almacena el mensaje de ejecución donde se describe el resultado de la ejecución de un servicio.
 	 */
 	private String mensajeEjecucion;
 
+	
+	
 	/**
-	 * Constructor de la clase.
+	 * Constructor vacío de la clase.
+	 */
+	public ResultadoDTO() {
+		super();
+	}
+
+	/**
+	 * Constructor de la clase parametrizado con el exito y el mensaje de la ejecución.
 	 * 
 	 * @param exitoso
 	 * @param mensajeEjecucion
@@ -34,38 +48,42 @@ public class ResultadoDTO implements Serializable {
 		this.exitoso = exitoso;
 		this.mensajeEjecucion = mensajeEjecucion;
 	}
-
+	
 	/**
-	 * Método que obtiene el valor de la propiedad exitoso
 	 * 
-	 * @return the exitoso
+	 * Metodo encargado de de retornar si la ejecución fue exitosa o no 
+	 * 
+	 * @return el valor de exitoso(true o false) 
 	 */
 	public boolean isExitoso() {
 		return exitoso;
 	}
 
 	/**
-	 * Método que asigna el valor de la propiedad exitoso
 	 * 
-	 * @param exitoso the exitoso to set
+	 * Metodo encargado de modificar el valor de la propiedad exitoso
+	 * 
+	 * @param exitoso
 	 */
 	public void setExitoso(boolean exitoso) {
 		this.exitoso = exitoso;
 	}
 
 	/**
+	 * 
 	 * Método que obtiene el valor de la propiedad mensajeEjecucion
 	 * 
-	 * @return the mensajeEjecucion
+	 * @return mensajeEjecucion
 	 */
 	public String getMensajeEjecucion() {
 		return mensajeEjecucion;
 	}
 
 	/**
+	 * 
 	 * Método que asigna el valor de la propiedad mensajeEjecucion
 	 * 
-	 * @param mensajeEjecucion the mensajeEjecucion to set
+	 * @param mensajeEjecucion
 	 */
 	public void setMensajeEjecucion(String mensajeEjecucion) {
 		this.mensajeEjecucion = mensajeEjecucion;

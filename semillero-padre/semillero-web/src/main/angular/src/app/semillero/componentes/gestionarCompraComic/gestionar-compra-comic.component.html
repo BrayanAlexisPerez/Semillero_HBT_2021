@@ -1,0 +1,24 @@
+<div class="container">
+    <form [formGroup]="gestionarCompraComicForm">
+        <h1>Gestionar Compra Comic</h1>
+        <hr>        
+        
+        <div class="row">
+            <div class="col-6">
+                <label for="nombreComic">Nombre Comic:</label>
+                <input type="text" class="form-control" id="nombreComic" maxlength="50" formControlName="nombre" 
+                    [ngClass]="{ 'is-invalid' :  submitted && f.nombre.errors }" disabled>
+            </div>
+            <div class="col-6">
+                <label for="editorialComic">Cantidad a Comprar</label>
+                <input type="text" class="form-control" id="editorialComic" formControlName="cantidad" maxlength="50"
+                    [ngClass]="{ 'is-invalid' :  submitted && f.editorial.errors }">
+                    <div *ngIf="submitted && f.editorial.errors">
+                    <span class="text-danger" *ngIf="f.editorial.errors.required">Campo requerido.</span>
+                    <span class="text-danger" *ngIf="f.editorial.errors.maxlength">El campo solo recibe 50 caracteres.</span>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>

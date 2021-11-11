@@ -9,15 +9,15 @@ import com.hbt.semillero.enums.TematicaEnum;
 
 /**
  * Descripción: Clase que determina el dto a usar para modificar,
- * consultar y posteriormente eliminar un comic
+ *              consultar y posteriormente eliminar un comic
  * 
  * @author Brayan Perez
  * @version 2.0
  */
-public class ComicDTO implements Serializable {
+public class ComicDTO extends ResultadoDTO implements Serializable{
 
 	/**
-	 * Atributo que determina serialVersionUID es el id único que identifica una clase 
+	 * SerialVersionUID es el id único que identifica una clase 
 	 * cuando lo serializamos. mediante este id podemos identificar el objeto convertido 
 	 * en un array de bytes.
 	 */
@@ -290,66 +290,5 @@ public class ComicDTO implements Serializable {
 	 */
 	public void setCantidad(Long cantidad) {
 		this.cantidad = cantidad;
-	}
-
-	/**
-	 * Método encargado de convertir los datos recibidos en JSON al tipo ComicDTO.
-	 * <b>Caso de Uso:</b>
-	 * 
-	 * @param arg Cadena que representa el objeto complejo JSON.
-	 * @return Instancia con los datos recibidos.
-	 */
-	public static ComicDTO valueOf(String arg) {
-		return JsonUtils.valueOf(arg, ComicDTO.class);
-	}
-
-	/**
-	 * Método encargado de convertir los datos recibidos en ComicDTO al JSON
-	 * esperado
-	 * 
-	 * @param dto DTO
-	 * 
-	 * @return Json
-	 */
-	@Override
-	public String toString() {
-		return JsonUtils.toStringJson(this);
-	}
-
-	/**
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
-		return result;
-	}
-
-	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		ComicDTO other = (ComicDTO) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (nombre == null) {
-			if (other.nombre != null)
-				return false;
-		} else if (!nombre.equals(other.nombre))
-			return false;
-		return true;
 	}
 }
